@@ -1,0 +1,73 @@
+package freshwork.freshwork2;
+import java.util.concurrent.TimeUnit;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Action;
+import org.openqa.selenium.interactions.Actions;
+
+public class Platform 
+{
+	public static void main(String[] args) 
+	{
+		 System.setProperty("webdriver.chrome.driver", "C:\\Users\\00005745\\Desktop\\selenium\\chromedriver_win32\\chromedriver.exe" ); 
+	        WebDriver driver=new ChromeDriver(); 
+	        driver.get("https://www.freshworks.com/");
+	        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	        
+	        
+	        // navigating platform
+	        WebElement txt = driver.findElement(By.xpath("/html/body/header/nav/div/div/ul/li[2]/span"));
+	        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	        
+	        Actions builder = new Actions(driver);
+	        Action seriesOfActions = builder.moveToElement(txt).build();
+	        seriesOfActions.perform();
+	        
+	        /*
+	        //navigating market place
+	        driver.findElement(By.xpath("/html/body/header/nav/div/div/ul/li[2]/ul/div/div/div[3]/a[1]/li/h6")).click();
+	        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	        
+	        
+	        //search an element and sent a key
+	        driver.findElement(By.xpath("//*[@id=\"search\"]")).sendKeys("skype");
+	        
+	        //click on skype
+	        driver.findElement(By.xpath("//*[@id=\"__layout\"]/div/header/nav/div[2]/div/div[3]/div[2]/div[1]/div[1]")).click();
+	        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS); 
+	        
+	        
+	        //navigating developer portal
+	        driver.findElement(By.xpath(" /html/body/header/nav/div/div/ul/li[2]/ul/div/div/div[3]/a[2]/li")).click();
+	        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	        
+	        //navigating resources
+	        driver.findElement(By.xpath("//*[@id=\"gatsby-focus-wrapper\"]/div/header/nav/div/div[2]/div/div/ul/li[3]/div/span")).click();
+	        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	        
+	        //navigating guide
+	        driver.findElement(By.xpath("//*[@id=\"gatsby-focus-wrapper\"]/div/header/nav/div/div[2]/div/div/ul/li[3]/div/ul/li[1]/a/span")).click();
+	        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	        
+	        
+	        // navigating the technology alliances
+	        driver.findElement(By.xpath("/html/body/header/nav/div/div/ul/li[2]/ul/div/div/div[3]/a[3]/li/h6")).click();
+	        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	        
+	        
+	        //navigating customer spotlight
+	        driver.findElement(By.xpath("/html/body/header/nav/div/div/ul/li[2]/ul/div/div/div[3]/a[4]/li/h6")).click();
+	        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	        */
+	        
+	        //navigating freddy AI 
+	        driver.findElement(By.xpath("/html/body/header/nav/div/div/ul/li[2]/ul/div/div/div[3]/a[5]/li")).click();
+	        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	        
+	        
+	        
+	}
+}
