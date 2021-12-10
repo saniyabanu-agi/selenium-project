@@ -7,8 +7,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
-public class FreshServices1 
-{
+
+public class Freshservicesignup {
 	public static void main(String[] args) 
 	{
 		 System.setProperty("webdriver.chrome.driver", "C:\\Users\\00005745\\Desktop\\selenium\\chromedriver_win32\\chromedriver.exe" ); 
@@ -16,8 +16,12 @@ public class FreshServices1
 	        driver.get("https://www.freshworks.com/");
 	        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	        
+	        //accepting cookies
+	        driver.findElement(By.xpath("//*[@id='onetrust-accept-btn-handler']")).click();
+	        
+	        
 	        // click on products
-	        WebElement txt = driver.findElement(By.xpath("/html/body/header/nav/div/div/ul/li[1]"));
+	        WebElement txt = driver.findElement(By.xpath("/html/body/header/nav/div/div/ul/li[1]/span"));
 	        
 	        Actions builder = new Actions(driver);
 	        Action seriesOfActions = builder.moveToElement(txt).build();
@@ -27,21 +31,22 @@ public class FreshServices1
 	        driver.findElement(By.xpath("//h6[text()=\"Freshservice\"]")).click(); 
 	        
 	        //accepting cookies
-	        driver.findElement(By.xpath("//*[@id=\"onetrust-accept-btn-handler\"]")).click();
-	        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	        driver.findElement(By.xpath("//*[@id='onetrust-accept-btn-handler']")).click();
 	        
 	         // click on sign up
 	        driver.findElement(By.xpath("/html/body/section[1]/div/div/div[1]/div/a")).click();
-	        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-	        
+	       
 	        //send the keys
-	        driver.findElement(By.xpath("/html/body/section/div/div[2]/div/form/fieldset[1]/div[1]/div[1]/div/input")).sendKeys("saniya");
-	        driver.findElement(By.xpath("/html/body/section/div/div[2]/div/form/fieldset[1]/div[1]/div[2]/div/input")).sendKeys("banu");
-	        driver.findElement(By.xpath("/html/body/section/div/div[2]/div/form/fieldset[1]/div[2]/input")).sendKeys("saniyabanu2050@gmail.com");
-	        driver.findElement(By.xpath("/html/body/section/div/div[2]/div/form/fieldset[1]/div[3]/input")).sendKeys("arisglobal");
-	        driver.findElement(By.xpath("/html/body/section/div/div[2]/div/form/fieldset[1]/div[4]/input")).sendKeys("8088705007");
+	        driver.findElement(By.className("first-name-form")).sendKeys("saniya");
+	        driver.findElement(By.className("last-name-form")).sendKeys("banu");
+	        driver.findElement(By.className("email-form")).sendKeys("saniyabanu2050@gmail.com");
+	        driver.findElement(By.className("company-form")).sendKeys("arisglobal");
+	        driver.findElement(By.className("phone-form")).sendKeys("8088705007");
+	        
 	        
 	        // click on sign up for free
-	        driver.findElement(By.xpath("/html/body/section/div/div[2]/div/form/fieldset[2]/input")).click();
-	        }
-          }
+	        driver.findElement(By.cssSelector(".button.button-submit.button--solid.button--block")).click();
+	        driver.close();
+	        
+	}
+}
